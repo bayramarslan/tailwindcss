@@ -1522,6 +1522,9 @@ test('old theme values are merged with their renamed counterparts in the CSS the
         --breakpoint-a: 1;
         --breakpoint-b: 2;
 
+        --color-a: 1;
+        --color-b: 2;
+
         --radius-a: 1;
         --radius-b: 2;
 
@@ -1548,6 +1551,14 @@ test('old theme values are merged with their renamed counterparts in the CSS the
 
             expect(theme('screens.a')).toEqual('1')
             expect(theme('screens.b')).toEqual('2')
+
+            expect(theme('colors')).toMatchObject({
+              a: '1',
+              b: '2',
+            })
+
+            expect(theme('colors.a')).toEqual('1')
+            expect(theme('colors.b')).toEqual('2')
 
             expect(theme('borderRadius')).toMatchObject({
               a: '1',
