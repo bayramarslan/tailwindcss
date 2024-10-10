@@ -13,6 +13,11 @@ export function createCompatConfig(cssTheme: Theme): UserConfig {
       // and only allow colors from the CSS theme.
       colors: ({ theme }) => theme('color', {}),
 
+      boxShadow: ({ theme }) => ({
+        ...defaultTheme.boxShadow,
+        ...theme('shadow', {}),
+      }),
+
       transitionDuration: {
         ...defaultTheme.transitionDuration,
         DEFAULT: cssTheme.get(['--default-transition-duration']) ?? null,
